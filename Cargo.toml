@@ -6,7 +6,7 @@ description = "Recreate the Nix package manager style of package management for 
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/ofluffydev/nixman"
 readme = "README.md"
-keywords = ["nix", "arch", "package manager", "nixman"]
+keywords = ["nix", "arch", "package-manager", "nixman"]
 categories = ["system", "package-management"]
 authors = ["Fluffy <fufferpish@gmail.com>"]
 
