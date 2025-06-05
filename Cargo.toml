@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/ofluffydev/nixman"
 readme = "README.md"
 keywords = ["nix", "arch", "package-manager", "nixman"]
-categories = ["system", "package-management"]
+categories = ["command-line-utilities", "os::linux-apis"]
 authors = ["Fluffy <fufferpish@gmail.com>"]
 
 [dependencies]
