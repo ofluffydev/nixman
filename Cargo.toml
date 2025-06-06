@@ -1,6 +1,6 @@
 [package]
 name = "nixman"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 description = "Recreate the Nix package manager style of package management for Arch Linux."
 license = "MIT OR Apache-2.0"

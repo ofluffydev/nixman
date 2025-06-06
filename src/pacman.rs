@@ -12,6 +12,8 @@
 //! - [`paru_install`]: Install packages using paru (AUR helper).
 //! - [`pacman_remove`]: Remove packages using pacman, optionally with sudo.
 //! - [`paru_remove`]: Remove packages using paru.
+//! - [`pacman_update`]: Update the system using pacman, optionally with sudo.
+//! - [`paru_update`]: Update the system using paru.
 //!
 //! # Example
 //!
@@ -109,5 +111,25 @@ pub fn pacman_remove(packages: &[String], use_sudo: bool) -> std::io::Result<Exi
 pub fn paru_remove(packages: &[String]) -> std::io::Result<ExitStatus> {
     let mut cmd = Command::new("paru");
     cmd.arg("-Rns").args(packages);
+    cmd.status()
+}
+
+/// Runs a full system upgrade using pacman (sudo pacman -Syyu).
+///
+/// # Errors
+/// Returns an error if the pacman command could not be executed.
+pub fn pacman_update() -> std::io::Result<std::process::ExitStatus> {
+    let mut cmd = Command::new("sudo");
+    cmd.arg("pacman").arg("-Syyu");
+    cmd.status()
+}
+
+/// Runs a full system upgrade using paru (paru -Syyu).
+///
+/// # Errors
+/// Returns an error if the paru command could not be executed.
+pub fn paru_update() -> std::io::Result<std::process::ExitStatus> {
+    let mut cmd = Command::new("paru");
+    cmd.arg("-Syyu");
     cmd.status()
 }

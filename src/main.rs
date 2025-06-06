@@ -128,8 +128,12 @@ fn main() {
         };
         std::process::exit(status.code().unwrap_or(1));
     } else if matches!(cli.command, Some(Commands::Update)) {
-        let status = pacman::pacman_install(&["-Syyu".to_string()], true)
-            .expect("Failed to execute sudo pacman -Syyu");
+        let use_paru = cli.paru;
+        let status = if use_paru {
+            pacman::paru_update().expect("Failed to execute paru -Syyu")
+        } else {
+            pacman::pacman_update().expect("Failed to execute sudo pacman -Syyu")
+        };
         if status.success() {
             let output = pacman::pacman_list_explicit().expect("Failed to execute pacman -Qe");
             let output = String::from_utf8_lossy(&output.stdout);
